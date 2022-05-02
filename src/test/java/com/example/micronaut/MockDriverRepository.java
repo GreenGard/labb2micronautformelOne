@@ -1,9 +1,11 @@
 package com.example.micronaut;
 
+
 import io.micronaut.context.annotation.Replaces;
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.core.async.publisher.Publishers;
 import jakarta.inject.Singleton;
+import org.jetbrains.annotations.NotNull;
 import org.reactivestreams.Publisher;
 import reactor.core.publisher.Mono;
 
@@ -14,16 +16,13 @@ import java.util.List;
 @Replaces(DriverRepository.class)
 public class MockDriverRepository implements DriverRepository {
 
-
     @Override
     public Publisher<Driver> list() {
-        return Publishers.empty();
+        return null;
     }
 
-
-
     @Override
-    public Mono<Boolean> save(Driver driver) {
-        return Mono.just(false);
+    public Mono<Boolean> save(@NotNull Driver driver) {
+        return null;
     }
 }

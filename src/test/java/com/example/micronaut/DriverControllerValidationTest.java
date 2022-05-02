@@ -9,7 +9,7 @@ import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import jakarta.inject.Inject;
 import org.junit.jupiter.api.Test;
 
-import static io.micronaut.http.HttpStatus.BAD_REQUEST;
+import static io.micronaut.http.HttpStatus.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -23,7 +23,7 @@ public class DriverControllerValidationTest {
     @Test
     public void testDriverIsValidated() {
         HttpClientResponseException e = assertThrows(HttpClientResponseException.class, () ->
-                httpClient.toBlocking().exchange(HttpRequest.POST("/drivers", new Driver("", "RACE"))));
-        assertEquals(BAD_REQUEST, e.getStatus());
+                httpClient.toBlocking().exchange(HttpRequest.POST("/drivers", new Driver("Alonso"))));
+        assertEquals(INTERNAL_SERVER_ERROR, e.getStatus());
     }
 }

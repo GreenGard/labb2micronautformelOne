@@ -15,5 +15,5 @@ public interface DriverRepository {
     Publisher<Driver> list();
 
     Mono<Boolean> save(@NonNull @NotNull @Valid Driver driver);
-}
+    }
 

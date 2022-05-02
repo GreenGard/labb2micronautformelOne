@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example</groupId>
+  <groupId>example.micronaut</groupId>
   <artifactId>labb2micronaut</artifactId>
   <version>0.1</version>
   <packaging>${packaging}</packaging>
@@ -17,7 +17,7 @@
     <jdk.version>17</jdk.version>
     <release.version>17</release.version>
     <micronaut.version>3.4.2</micronaut.version>
-    <exec.mainClass>com.example.Application</exec.mainClass>
+    <exec.mainClass>com.example.micronaut.Application</exec.mainClass>
      <micronaut.runtime>netty</micronaut.runtime>
   </properties>
 
@@ -115,17 +115,7 @@
       <artifactId>testcontainers</artifactId>
       <scope>test</scope>
     </dependency>
-<!--    <dependency>
-      <groupId>org.mongodb</groupId>
-      <artifactId>mongodb-driver-sync</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mongodb</groupId>
-      <artifactId>mongodb-driver-sync</artifactId>
-      <version>4.3.4</version>
-    </dependency>-->
-  </dependencies>
+    </dependencies>
 
   <build>
     <plugins>

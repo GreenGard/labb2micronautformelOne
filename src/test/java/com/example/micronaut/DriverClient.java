@@ -12,6 +12,7 @@ import java.util.List;
 
 @Client("/drivers")
 public interface DriverClient {
+
     @Post
     @NonNull
     HttpStatus save(@NonNull @NotNull @Valid Driver driver);
