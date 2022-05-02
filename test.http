@@ -1,0 +1,11 @@
+###
+POST http://localhost:8080/drivers
+Content-Type: application/json
+
+
+{
+  "name": "Michael Schumacher","description": "Världsmästare"
+}
+
+###
+GET http://localhost:8080/drivers

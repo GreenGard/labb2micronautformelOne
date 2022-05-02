@@ -2,8 +2,8 @@ Thumbs.db
 .DS_Store
 .gradle
 build/
-target/
-target/*.json
+target/*
+!target/classes/resource-config.json
 out/
 .idea
 *.iml
