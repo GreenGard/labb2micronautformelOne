@@ -27,7 +27,5 @@ jobs:
         env:
           TESTCONTAINERS_RYUK_DISABLED: true
         run: |
-          docker tag labb2micronautformelone:latest ${{ env.IMAGE_NAME }}
-          docker push ${{ env.IMAGE_NAME }}
-          docker tag labb2micronautformelone:latest ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
-          docker push ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+          export DOCKER_IMAGE=`echo "${DOCKER_USERNAME}/${DOCKER_PASSWORD}/labb2micronautformelone" | sed -e 's#//#/#' -e 's#^/##'`
+          ./mvnw deploy -Dpackaging=docker-native -Djib.docker.image=$DOCKER_IMAGE --no-transfer-progress
