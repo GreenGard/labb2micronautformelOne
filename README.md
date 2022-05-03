@@ -1,3 +1,16 @@
+GET localhost:8080/drivers
+
+POST localhost:8080/drivers 
+
+{
+  "name" : "Allan",
+  "specification" : "snabb som bara den"
+}
+
+
+
+
+
 How to run:
 
 ```
