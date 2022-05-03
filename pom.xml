@@ -173,6 +173,15 @@
           <skipTests>true</skipTests>
         </configuration>
       </plugin>
+       <plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <configuration>
+          <to>
+            <image>${jib.docker.image}:${jib.docker.tag}</image>
+          </to>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
