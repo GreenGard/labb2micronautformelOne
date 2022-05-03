@@ -1,14 +1,12 @@
 How to run:
 
 ```
-            docker volume create driver
+          docker network create hej
+```
+
+```
+            docker run -d --name hejsan --network hej -p 27017:27017 mongo
 ```
 ```
-            docker network create drivers
-```
-```
-            docker run -d --network drivers--name <mongodb -p 8080:8080 mongo:latest
-```
-```
-            mvnw package -Dpackaging=docker-native -Pgraalvm
+          docker run -d --name hejsan --network hej -p 8080:8080 -e MONGO_HOST=mongo greengard/labb2micronautformelone
 ```
