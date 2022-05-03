@@ -21,5 +21,5 @@ docker network create hej
 docker run -d --name hejsan --network hej -p 27017:27017 mongo
 ```
 ```
-docker run -d --name hejsan --network hej -p 8080:8080 -e MONGO_HOST=mongo GreenGard/labb2micronautformelOne:0.1
+docker run -d --name hejsan --network hej -p 8080:8080 -e MONGO_HOST=mongo greengard/labb2micronautformelone:0.1
 ```
