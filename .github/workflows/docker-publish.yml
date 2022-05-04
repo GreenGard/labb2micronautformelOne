@@ -2,11 +2,11 @@ name: Package & Publish Native App
 
 on:
   release:
-    types: [ created ]
+    types: [ published ]
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ghcr.io/greengard/labb2micronautformelone
+  IMAGE_NAME: ghcr.io/vimbayinashe/mongo-micronaut-dessert-server
   VERSION: ${{ github.event.release.tag_name }}
 
 jobs:
@@ -24,6 +24,12 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      - name: Compile with Maven
+        run: mvn -B compile --file pom.xml
+      
+      - name: Test with Maven
+        run: mvn -B test --file pom.xml
+
   build-and-publish-executable-and-image:
     needs: [ compile-and-test ]
     runs-on: ubuntu-latest
@@ -34,14 +40,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
+        
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-
+          
       - name: Log into registry ${{ env.REGISTRY }}
         uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
         with:
