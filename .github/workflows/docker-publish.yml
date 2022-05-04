@@ -11,68 +11,56 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.com/GreenGard/labb2micronautformelOne.git }}
+  IMAGE_NAME: ${{ github.com/greengard/labb2micronautformelone.git }}
 
 
 jobs:
   compile-and-test:
     runs-on: ubuntu-latest
 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
 
-  - name: Set up JDK 17
-    uses: actions/setup-java@v3
-    with:
-      java-version: 17'
-      distribution: temurin
-      cache: maven
-
-
-build-and-publish-executable-and-image:
+  build-and-publish-executable-and-image:
     needs: [ compile-and-test ]
     runs-on: ubuntu-latest
-permissions:
-contents: read
-packages: write
+    permissions:
+      contents: read
+      packages: write
 
-  steps:
- Check failure on line 40 in .github/workflows/docker-publish.yml
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-GitHub Actions
-/ .github/workflows/docker-publish.yml
-Invalid workflow file
-You have an error in your yaml syntax on line 40
-   - name: Checkout repository
-     uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
 
-    - name: Set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-              java-version: 17'
-              distribution: temurin'
-              cache: maven
-
-          - name: Log into registry ${{ env.REGISTRY }}
+      - name: Log into registry ${{ env.REGISTRY }}
         uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ secrets.GITHUB_USERNAME }}
+          password: ${{ secrets.GITHUB_PASSWORD }}
 
 
-        - name: Run test
-          run: mvnw test
+      - name: Build a docker image
+        run: ./mvnw package -Dpackaging=docker-native -Pgraalvm
 
-        - name: Build and push Docker image
-          id: build-and-push
-          run: mvnw package -Dpackaging=docker-native -Pgraalvm
-
-        - name: Sign the published Docker image
-          run: |
-            docker tag labb2micronautformelOne:latest ${{ env.IMAGE_NAME }}:latest
-            docker push ${{ env.IMAGE_NAME }}:latest
-            docker tag labb2micronautformelOne:latest ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
-            docker push ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+      - name: Push Docker image
+        run: |
+          docker tag labb2micronautformelone:latest ${{ env.IMAGE_NAME }}:latest
+          docker push ${{ env.IMAGE_NAME }}:latest
+          docker tag llabb2micronautformelone:latest ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+          docker push ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
