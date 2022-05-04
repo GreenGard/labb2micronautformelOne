@@ -2,9 +2,8 @@
 
 name: Package & Publish Native App
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 
 env:
   IMAGE_NAME: greengard/labb2micronaut
