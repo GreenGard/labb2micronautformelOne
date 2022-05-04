@@ -32,7 +32,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build a docker image
-        run: ./mvnw package -Dpackaging=docker-native -Pgraalvm
+        run: ./mvn package -Dpackaging=docker-native -Pgraalvm
 
       - name: Push Docker image
         run: |
