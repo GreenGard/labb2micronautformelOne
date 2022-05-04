@@ -7,7 +7,7 @@ on:
       - main
 
 env:
-  IMAGE_NAME: greengard/labb2micronaut
+  IMAGE_NAME: greengard/labb2micronautformelone/labb2micronaut
   VERSION: ${{ github.event.release.tag_name }}
   
 jobs:
