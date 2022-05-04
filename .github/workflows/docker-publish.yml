@@ -3,7 +3,7 @@
 name: Package & Publish Native App
 on:
   push:
-    branches-ignore:
+    branches:
       - main
 
 env:
