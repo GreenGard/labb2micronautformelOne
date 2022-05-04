@@ -7,7 +7,7 @@ on:
       - main
 
 env:
-  IMAGE_NAME: greengard/labb2micronautformelone/labb2micronaut
+  IMAGE_NAME: greengard/labb2micronaut
   VERSION: ${{ github.event.release.tag_name }}
   
 jobs:
@@ -36,5 +36,5 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker tag labb2micronaut ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+          docker tag labb2micronaut:latest ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
           docker push ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
