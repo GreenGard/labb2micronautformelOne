@@ -4,7 +4,7 @@ name: Package & Publish Native App
 
 on:
   release:
-    types: [created]
+    types: [ created ]
 
 env:
   REGISTRY: ghcr.io
