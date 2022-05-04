@@ -14,12 +14,12 @@ POST localhost:8080/drivers
 How to run:
 
 ```
-docker network create hej
+docker network create formel
 ```
 
 ```
-docker run -d --name hejsan --network hej -p 27017:27017 mongo
+docker run -d --name formel --network formel -p 27017:27017 mongo
 ```
 ```
-docker run -d --name hejsan --network hej -p 8080:8080 -e MONGO_HOST=mongo greengard/labb2micronautformelone:0.1
+docker run -d --name formel --network formel -p 8080:8080 -e MONGO_HOST=mongo greengard/labb2micronaut:0.1
 ```
