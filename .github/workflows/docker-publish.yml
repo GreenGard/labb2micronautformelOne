@@ -35,5 +35,5 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker tag labb2micronaut:latest ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+          docker tag labb2micronaut:0.1 ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
           docker push ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
