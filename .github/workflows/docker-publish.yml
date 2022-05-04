@@ -7,8 +7,7 @@ on:
       - main
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ghcr.io/greengard/labb2micronaut
+  IMAGE_NAME: greengard/labb2micronaut
   VERSION: ${{ github.event.release.tag_name }}
   
 jobs:
