@@ -2,11 +2,11 @@ name: Package & Publish Native App
 
 on:
   release:
-    types: [ published ]
+    types: [ created ]
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ghcr.io/lordrekishi/lab2-micronaut-webservices
+  IMAGE_NAME: ghcr.io/greengard/labb2micronautformelone
   VERSION: ${{ github.event.release.tag_name }}
 
 jobs:
@@ -56,7 +56,7 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker tag lab2-micronaut-webservices:latest ${{ env.IMAGE_NAME }}:latest
+          docker tag labb2micronautformelone:latest ${{ env.IMAGE_NAME }}:latest
           docker push ${{ env.IMAGE_NAME }}:latest
-          docker tag lab2-micronaut-webservices:latest ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+          docker tag labb2micronautformelone:latest ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
           docker push ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
