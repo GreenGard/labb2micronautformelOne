@@ -1,5 +1,5 @@
 
-name: FormulaOne
+name: Build Native Image
 on:
   release:
     types: [ published ]
