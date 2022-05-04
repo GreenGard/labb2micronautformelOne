@@ -138,8 +138,6 @@
         <artifactId>maven-resources-plugin</artifactId>
         <version>3.1.0</version> <!-- Here, instead of 3.1 you had in the question -->
       </plugin>           
-       
-        <plugins>
             <plugin>
         <groupId>io.micronaut.build</groupId>
         <artifactId>micronaut-maven-plugin</artifactId>
