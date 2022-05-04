@@ -9,11 +9,6 @@ on:
     branches: [ main ]
 
 
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.com/greengard/labb2micronautformelone.git }}
-
-
 jobs:
   compile-and-test:
     runs-on: ubuntu-latest
