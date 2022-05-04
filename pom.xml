@@ -14,16 +14,15 @@
   </parent>
 
   <properties>
-    <packaging>jar</packaging>
-    <jdk.version>11</jdk.version>
-    <release.version>11</release.version>
-    <micronaut.version>3.4.2</micronaut.version>
-    <exec.mainClass>com.example.Application</exec.mainClass>
-    <jib.docker.image>${project.artifactId}</jib.docker.image>
-    <jib.docker.tag>${project.version}</jib.docker.tag>
-    <micronaut.runtime>netty</micronaut.runtime>
-  </properties>
-
+        <packaging>jar</packaging>
+        <jdk.version>17</jdk.version>
+        <release.version>17</release.version>
+        <micronaut.version>3.4.2</micronaut.version>
+        <exec.mainClass>com.example.micronaut.Application</exec.mainClass>
+        <jib.docker.image>${project.artifactId}</jib.docker.image>
+        <jib.docker.tag>${project.version}</jib.docker.tag>
+        <micronaut.runtime>netty</micronaut.runtime>
+    </properties>
   <repositories>
     <repository>
       <id>central</id>
