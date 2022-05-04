@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ghcr.io/vimbayinashe/mongo-micronaut-dessert-server
+  IMAGE_NAME: ghcr.io/greengard/labb2micronautformelone
   VERSION: ${{ github.event.release.tag_name }}
 
 jobs:
