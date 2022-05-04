@@ -2,7 +2,7 @@
 name: Build Native Image
 on:
   release:
-    types: [ published ]
+    types: [ created ]
   push:
     branches: [ $default-branch ]
     tags: [ 'v*.*.*' ]
