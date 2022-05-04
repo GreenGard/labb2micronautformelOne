@@ -5,8 +5,8 @@ GET localhost:8080/drivers
 POST localhost:8080/drivers 
 
 {
-  "name" : "Allan",
-  "specification" : "snabb som bara den"
+  "name" : "Sebastian",
+  "specification" : "the best race car driver in the world"
 }
 
 
